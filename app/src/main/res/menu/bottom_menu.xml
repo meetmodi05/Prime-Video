@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/home"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/store"
+        android:icon="@drawable/outline_shopping_bag_24"
+        android:title="@string/store"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/liveTv"
+        android:icon="@drawable/baseline_cast_connected_24"
+        android:title="@string/live_tv"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/me"
+        android:icon="@drawable/baseline_download_24"
+        android:title="@string/downloads"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/me1"
+        android:icon="@drawable/baseline_search_24"
+        android:title="@string/find"
+        app:showAsAction="withText" />
+</menu>

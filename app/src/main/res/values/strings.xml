@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Prime Video</string>
+    <string name="prime_video">Prime Video</string>
+    <string name="all">All</string>
+    <string name="store">Store</string>
+    <string name="home">Home</string>
+    <string name="live_tv">Live Tv</string>
+    <string name="downloads">Downloads</string>
+    <string name="find">Find</string>
+    <string name="movies">Movies</string>
+    <string name="tvShows">Tv Shows</string>
+    <string name="primeRecommendedMovies"><font color="#146eb4">Prime</font> <font color="#ffffff">- Recommended movies</font></string>
+    <string name="watchInYourLanguage"><font color="#146eb4">Prime</font> <font color="#ffffff">- Watch in Your Language</font></string>
+    <string name="newRelease"><font color="#ffbf00">New release movies</font></string>
+    <string name="amazonOriginal"><font color="#146eb4">Prime</font> <font color="#ffffff">- Amazon Original series</font></string>
+    <string name="todo">TODO</string>
+</resources>

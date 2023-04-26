@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity">
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="4dp">
+
+                <ImageView
+                    android:id="@+id/ivPrimeLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_margin="5dp"
+                    android:padding="4dp"
+                    android:src="@drawable/primevideo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/todo" />
+
+                <include
+                    layout="@layout/toplayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_horizontal" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/tvAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:background="@drawable/title_bg_selector"
+                    android:padding="10dp"
+                    android:text="@string/all"
+                    android:textColor="@color/tv_color"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvMovies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:background="@drawable/title_bg_selector"
+                    android:padding="10dp"
+                    android:text="@string/movies"
+                    android:textColor="@color/tv_color"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvTvShows"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="14dp"
+                    android:background="@drawable/title_bg_selector"
+                    android:padding="10dp"
+                    android:text="@string/tvShows"
+                    android:textColor="@color/tv_color"
+                    android:textSize="18sp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:padding="10dp"
+                android:layout_marginVertical="15dp"
+                android:background="@color/primeBlue"
+                android:visibility="visible" />
+
+            <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+                android:id="@+id/worm_dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                app:dotsColor="#FFFFFF"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="8dp"
+                app:dotsSpacing="4dp"
+                app:dotsStrokeColor="@color/primeBlue"
+                app:dotsStrokeWidth="2dp" />
+
+            <TextView
+                android:id="@+id/tvRecommendedMovies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:fontFamily="@font/amazon_ember_bold"
+                android:padding="5dp"
+                android:text="@string/primeRecommendedMovies"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecommendedMovies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:scrollbars="none" />
+
+            <TextView
+                android:id="@+id/tvWatchInYourLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:fontFamily="@font/amazon_ember_bold"
+                android:padding="5dp"
+                android:text="@string/watchInYourLanguage"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvWatchInYourLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:scrollbars="none" />
+
+            <TextView
+                android:id="@+id/tvNewRelease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:fontFamily="@font/amazon_ember_bold"
+                android:padding="5dp"
+                android:text="@string/newRelease"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:drawableEnd="@drawable/chevron_right_yellow" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNewRelease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:scrollbars="none" />
+
+
+            <TextView
+                android:id="@+id/tvOriginalSeries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:fontFamily="@font/amazon_ember_bold"
+                android:padding="5dp"
+                android:text="@string/amazonOriginal"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:drawableEnd="@drawable/chevron_right" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvOriginalSeries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:scrollbars="none" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomAppBar"
+        style="@style/ShapeAppearanceOverlay.Material3.NavigationView.Item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        app:itemIconTint="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_menu" />
+</androidx.appcompat.widget.LinearLayoutCompat>
