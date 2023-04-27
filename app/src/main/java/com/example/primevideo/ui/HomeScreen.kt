@@ -11,7 +11,6 @@ import com.example.primevideo.Model.MoviesModel
 import com.example.primevideo.Model.RecommendedModel
 import com.example.primevideo.R
 import com.example.primevideo.databinding.ActivityHomeScreenBinding
-import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 
 
 class HomeScreen : AppCompatActivity() {
@@ -26,13 +25,19 @@ class HomeScreen : AppCompatActivity() {
             .override(220, 220).into(binding.ivPrimeLogo)
 
         binding.tvAll.setOnClickListener {
-            binding.tvAll.isSelected
+            binding.tvAll.isSelected = true
+            binding.tvMovies.isSelected = false
+            binding.tvTvShows.isSelected = false
         }
         binding.tvMovies.setOnClickListener {
-            binding.tvMovies.isSelected
+            binding.tvAll.isSelected = false
+            binding.tvMovies.isSelected = true
+            binding.tvTvShows.isSelected = false
         }
         binding.tvTvShows.setOnClickListener {
-            binding.tvTvShows.isSelected
+            binding.tvAll.isSelected = false
+            binding.tvMovies.isSelected = false
+            binding.tvTvShows.isSelected = true
         }
 
 
@@ -49,6 +54,7 @@ class HomeScreen : AppCompatActivity() {
         binding.viewPager.adapter = ImageAdapter(this@HomeScreen, imageModelArrayList)
         binding.wormDotsIndicator.attachTo(binding.viewPager)
         setRecommendedAdapter()
+
     }
 
     private fun setRecommendedAdapter() {

@@ -9,7 +9,7 @@ import com.example.primevideo.databinding.ActivityRecommendedMoviesDetailBinding
 
 
 class RecommendedMoviesDetail : AppCompatActivity() {
-    lateinit var binding: ActivityRecommendedMoviesDetailBinding
+    private lateinit var binding: ActivityRecommendedMoviesDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityRecommendedMoviesDetailBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -18,5 +18,6 @@ class RecommendedMoviesDetail : AppCompatActivity() {
         Glide.with(this).load(AppCompatResources.getDrawable(this,  R.drawable.jalsa))
             .override(1280,685)
             .into(binding.ivPoster)
+
     }
 }

@@ -31,4 +31,22 @@
     <string name="related">Related</string>
     <string name="moreDetail">More Detail</string>
     <string name="tvCustomerAlsoWatches">Customers Also Watched</string>
+    <string name="cast_crew"><![CDATA[Cast & Crew]]></string>
+    <string name="cast_name">Cast Name</string>
+    <string name="director">Director</string>
+    <string name="director_description">Director Description</string>
+    <string name="know_for">Know for:</string>
+    <string name="know_for_description">Know Description</string>
+    <string name="genres">Genres</string>
+    <string name="genres_description">Genres Description</string>
+    <string name="starring">Starring</string>
+    <string name="starring_description">Starring Description</string>
+    <string name="supportive_actor">Supportive Actor</string>
+    <string name="supportive_actor_description">Supportive Actor Description</string>
+    <string name="studios">Studios</string>
+    <string name="studios_description">Studios Description</string>
+    <string name="content_adv">Content advisory</string>
+    <string name="Content_description">Content Description</string>
+    <string name="customer_reviews">Customer reviews</string>
+    <string name="customer_reviews_description">We don\'t have any customer reviews</string>
 </resources>

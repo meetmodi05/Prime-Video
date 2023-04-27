@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:foreground="@drawable/gradient"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY" />
 
             <!--poster below Description layout-->
 
@@ -73,12 +73,12 @@
 
                     <TextView
                         android:id="@+id/tvIncludePrime"
-                        android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/amazon_ember_bold"
                         android:text="@string/include_with_prime"
-                        android:textSize="16sp"
-                        android:fontFamily="@font/amazon_ember_bold" />
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
                 <!--play layout-->
@@ -360,6 +360,14 @@
                         android:textColor="@color/white"
                         android:textSize="18sp" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <include
+                    android:id="@+id/inRelated"
+                    layout="@layout/related_layout" />
+
+                <include
+                    android:id="@+id/inMoreDetail"
+                    layout="@layout/more_detail_layout" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>
