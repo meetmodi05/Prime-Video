@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.HomeScreen">
 
     <ScrollView
         android:id="@+id/sv"
@@ -31,11 +31,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start|center"
                     android:layout_margin="5dp"
+                    android:contentDescription="@string/todo"
                     android:padding="4dp"
-                    android:src="@drawable/primevideo"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="@string/todo" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <include
                     layout="@layout/toplayout"
@@ -89,9 +88,8 @@
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="225dp"
-                android:padding="10dp"
                 android:layout_marginVertical="15dp"
-                android:background="@color/primeBlue"
+                android:padding="10dp"
                 android:visibility="visible" />
 
             <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
@@ -104,8 +102,8 @@
                 app:dotsCornerRadius="8dp"
                 app:dotsSize="8dp"
                 app:dotsSpacing="4dp"
-                app:dotsStrokeColor="@color/primeBlue"
-                app:dotsStrokeWidth="2dp" />
+                app:dotsStrokeWidth="2dp"
+                app:selectedDotColor="@color/white" />
 
             <TextView
                 android:id="@+id/tvRecommendedMovies"
@@ -115,6 +113,7 @@
                 android:fontFamily="@font/amazon_ember_bold"
                 android:padding="5dp"
                 android:text="@string/primeRecommendedMovies"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -152,12 +151,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
+                android:drawableEnd="@drawable/chevron_right_yellow"
                 android:fontFamily="@font/amazon_ember_bold"
                 android:padding="5dp"
                 android:text="@string/newRelease"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:drawableEnd="@drawable/chevron_right_yellow" />
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvNewRelease"
@@ -174,12 +173,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
+                android:drawableEnd="@drawable/chevron_right"
                 android:fontFamily="@font/amazon_ember_bold"
                 android:padding="5dp"
                 android:text="@string/amazonOriginal"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:drawableEnd="@drawable/chevron_right" />
+                android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvOriginalSeries"

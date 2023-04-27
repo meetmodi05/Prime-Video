@@ -18,7 +18,7 @@
         app:showAsAction="withText" />
     <item
         android:id="@+id/me"
-        android:icon="@drawable/baseline_download_24"
+        android:icon="@drawable/outline_file_download"
         android:title="@string/downloads"
         app:showAsAction="withText" />
     <item

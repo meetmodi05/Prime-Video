@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.primevideo.R
 import com.example.primevideo.databinding.ActivityRecommendedMoviesDetailBinding
 
+
 class RecommendedMoviesDetail : AppCompatActivity() {
     lateinit var binding: ActivityRecommendedMoviesDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +15,8 @@ class RecommendedMoviesDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        Glide.with(this).load(AppCompatResources.getDrawable(this, R.drawable.family_man))
+        Glide.with(this).load(AppCompatResources.getDrawable(this,  R.drawable.jalsa))
+            .override(1280,685)
             .into(binding.ivPoster)
     }
 }

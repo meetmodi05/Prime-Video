@@ -14,4 +14,21 @@
     <string name="newRelease"><font color="#ffbf00">New release movies</font></string>
     <string name="amazonOriginal"><font color="#146eb4">Prime</font> <font color="#ffffff">- Amazon Original series</font></string>
     <string name="todo">TODO</string>
+    <string name="include_with_prime">Include with Prime</string>
+    <string name="title">Title</string>
+    <string name="download">Download</string>
+    <string name="play">Play</string>
+    <string name="share">Share</string>
+    <string name="watchlist">Watchlist</string>
+    <string name="description">Super-Hero partners Scott Lang and Hope van Dyne, along with with Hope\'s parents Janet van Dyne and Hank Pym, and Scott\'s daughter Cassie Lang, find themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought possible.
+</string>
+    <string name="watch_party">Watch Party</string>
+    <string name="imdb">IMDB</string>
+    <string name="imdb_ratting">6.3</string>
+    <string name="year">2019</string>
+    <string name="min">102 min</string>
+    <string name="ua">U/A 13+</string>
+    <string name="related">Related</string>
+    <string name="moreDetail">More Detail</string>
+    <string name="tvCustomerAlsoWatches">Customers Also Watched</string>
 </resources>
