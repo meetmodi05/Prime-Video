@@ -1,21 +1,28 @@
-package com.example.primevideo.ui
+package com.example.primevideo.ui.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.primevideo.Adapter.ImageAdapter
 import com.example.primevideo.Adapter.RecommendedMoviesAdapter
 import com.example.primevideo.Model.MoviesModel
-import com.example.primevideo.Model.RecommendedModel
+import com.example.primevideo.Model.Results
 import com.example.primevideo.R
 import com.example.primevideo.databinding.ActivityHomeScreenBinding
+import com.example.primevideo.ui.viewModel.RecommendedMovieViewModel
 
 
 class HomeScreen : AppCompatActivity() {
     lateinit var binding: ActivityHomeScreenBinding
+    private val viewModel by lazy { RecommendedMovieViewModel(this@HomeScreen) }
     private lateinit var imageModelArrayList: ArrayList<MoviesModel>
+    private lateinit var imageArrayList: ArrayList<MoviesModel>
+    private var recommendedMoviesAdapter: RecommendedMoviesAdapter? = null
+    private val recommendedList: ArrayList<Results> = arrayListOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityHomeScreenBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -51,22 +58,44 @@ class HomeScreen : AppCompatActivity() {
         imageModelArrayList.add(MoviesModel(R.drawable.antman))
 
 
-        binding.viewPager.adapter = ImageAdapter(this@HomeScreen, imageModelArrayList)
+        binding.viewPager.adapter = ImageAdapter(imageModelArrayList)
+        binding.viewPager.beginFakeDrag()
+        binding.viewPager.fakeDragBy(-5f)
+        binding.viewPager.endFakeDrag()
         binding.wormDotsIndicator.attachTo(binding.viewPager)
-        setRecommendedAdapter()
+
+        setAdapter()
+        setObservers()
+        init()
 
     }
 
-    private fun setRecommendedAdapter() {
+    private fun init() {
+//        binding.rvRecommendedMovies.layoutManager =
+//            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+//        recommendedMoviesAdapter = RecommendedMoviesAdapter(recommendedList)
+//        binding.rvRecommendedMovies.adapter = recommendedMoviesAdapter
+        viewModel.getList()
+    }
 
-        val imageList = ArrayList<RecommendedModel>()
+    private fun setObservers() {
+        viewModel.dataLive.observe(this) {
+            recommendedList.clear()
+            recommendedList.addAll(it!!)
+            recommendedMoviesAdapter?.setList(recommendedList)
+        }
+    }
 
-        imageList.add(RecommendedModel(R.drawable.jalsa))
-        imageList.add(RecommendedModel(R.drawable.jackryan))
-        imageList.add(RecommendedModel(R.drawable.antman))
+    fun setAdapter() {
+//        imageArrayList = ArrayList()
+//        imageArrayList.add(MoviesModel(R.drawable.jalsa))
+//        imageArrayList.add(MoviesModel(R.drawable.jalsa))
+//        imageArrayList.add(MoviesModel(R.drawable.jalsa))
 
         binding.rvRecommendedMovies.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvRecommendedMovies.adapter = RecommendedMoviesAdapter(imageList)
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        recommendedMoviesAdapter = RecommendedMoviesAdapter(recommendedList)
+        binding.rvRecommendedMovies.adapter = recommendedMoviesAdapter
+
     }
 }

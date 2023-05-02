@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.HomeScreen">
+    tools:context=".ui.view.HomeScreen">
 
     <ScrollView
         android:id="@+id/sv"
@@ -37,6 +37,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <include
+                    android:id="@+id/topLayout"
                     layout="@layout/toplayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -84,7 +85,7 @@
                     android:textSize="18sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <androidx.viewpager.widget.ViewPager
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="225dp"
@@ -189,6 +190,111 @@
                 android:padding="5dp"
                 android:scrollbars="none" />
 
+            <TextView
+                android:id="@+id/tvActionAndAdventure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:drawableEnd="@drawable/chevron_right"
+                android:fontFamily="@font/amazon_ember_bold"
+                android:padding="5dp"
+                android:text="@string/actionAdventure"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvActionAndAdventure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:scrollbars="none" />
+
+            <TextView
+                android:id="@+id/tvCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:fontFamily="@font/amazon_ember_bold"
+                android:padding="5dp"
+                android:text="@string/categories"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:scrollbars="none" />
+
+            <TextView
+                android:id="@+id/tvTopMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:drawableEnd="@drawable/chevron_right"
+                android:fontFamily="@font/amazon_ember_bold"
+                android:padding="5dp"
+                android:text="@string/topMovies"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTopMovies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:scrollbars="none" />
+
+            <TextView
+                android:id="@+id/tvLatestMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:drawableEnd="@drawable/chevron_right"
+                android:fontFamily="@font/amazon_ember_bold"
+                android:padding="5dp"
+                android:text="@string/latestMovies"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLatestMovies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:scrollbars="none" />
+
+            <TextView
+                android:id="@+id/tvTopRatedMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:drawableEnd="@drawable/chevron_right"
+                android:fontFamily="@font/amazon_ember_bold"
+                android:padding="5dp"
+                android:text="@string/topRatedMovies"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTopRatedMovies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:scrollbars="none" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
@@ -199,8 +305,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        app:itemIconTint="@color/white"
+        android:layout_gravity="bottom|center_vertical"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_menu" />
 </androidx.appcompat.widget.LinearLayoutCompat>

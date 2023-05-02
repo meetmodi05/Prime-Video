@@ -1,38 +1,46 @@
 package com.example.primevideo.Adapter
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.bumptech.glide.Glide
-import com.example.primevideo.Model.RecommendedModel
+import com.example.primevideo.Model.Results
+import com.example.primevideo.R
 import com.example.primevideo.databinding.RecommendedMoviesLayoutBinding
-import com.example.primevideo.ui.RecommendedMoviesDetail
+import com.example.primevideo.ui.view.RecommendedMoviesDetail
 
-class RecommendedMoviesAdapter(var imageList: ArrayList<RecommendedModel>) :
+class RecommendedMoviesAdapter(private var imgList: ArrayList<Results>) :
     Adapter<RecommendedMoviesAdapter.MyHolder>() {
-    class MyHolder(var binding: RecommendedMoviesLayoutBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun binding(model: RecommendedModel) {
-        }
 
+    private val resultsList: ArrayList<Results> = arrayListOf()
+
+    fun setList(list: List<Results>) {
+        resultsList.clear()
+        resultsList.addAll(list)
+        notifyDataSetChanged()
+    }
+
+    class MyHolder(var mContext: Context, var binding: RecommendedMoviesLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun binding(model: Results) {}
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
     ): MyHolder {
         return MyHolder(
-            RecommendedMoviesLayoutBinding.inflate(
+            parent.context, RecommendedMoviesLayoutBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        holder.binding(imageList[position])
-        Glide.with(holder.itemView.context).load(imageList[position].image).override(512, 512)
-            .into(holder.binding.ivShapeableImageView)
+        holder.binding(imgList[position])
         holder.itemView.setOnClickListener {
             holder.itemView.context.startActivity(
                 Intent(
@@ -40,9 +48,11 @@ class RecommendedMoviesAdapter(var imageList: ArrayList<RecommendedModel>) :
                 )
             )
         }
+        Glide.with(holder.mContext).load(imgList[position].posterPath).override(512, 312)
+            .into(holder.binding.ivShapeableImageView)
     }
 
     override fun getItemCount(): Int {
-        return imageList.size
+        return imgList.size
     }
 }

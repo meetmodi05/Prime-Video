@@ -13,4 +13,5 @@
     <style name="CornerSize10Percent" parent="">
         <item name="cornerSize">10%</item>
     </style>
+
 </resources>

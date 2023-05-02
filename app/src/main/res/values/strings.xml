@@ -13,6 +13,11 @@
     <string name="watchInYourLanguage"><font color="#146eb4">Prime</font> <font color="#ffffff">- Watch in Your Language</font></string>
     <string name="newRelease"><font color="#ffbf00">New release movies</font></string>
     <string name="amazonOriginal"><font color="#146eb4">Prime</font> <font color="#ffffff">- Amazon Original series</font></string>
+    <string name="actionAdventure"><font color="#146eb4">Prime</font> <font color="#ffffff">- Action &amp; Adventure movies</font></string>
+    <string name="topRatedMovies"><font color="#146eb4">Prime</font> <font color="#ffffff">- Top-rated movies on IMDb</font></string>
+    <string name="latestMovies"><font color="#146eb4">Prime</font> <font color="#ffffff">- Latest Movies</font></string>
+    <string name="topMovies"><font color="#146eb4">Prime</font> <font color="#ffffff">- Top Movies</font></string>
+
     <string name="todo">TODO</string>
     <string name="include_with_prime">Include with Prime</string>
     <string name="title">Title</string>
@@ -49,4 +54,7 @@
     <string name="Content_description">Content Description</string>
     <string name="customer_reviews">Customer reviews</string>
     <string name="customer_reviews_description">We don\'t have any customer reviews</string>
+    <string name="categories">Categories</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

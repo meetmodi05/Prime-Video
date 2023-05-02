@@ -5,12 +5,15 @@ import java.io.Serializable
 
 open class BaseModel<T> : Serializable {
 
-    @SerializedName("message")
-    var message: String = ""
+    @SerializedName("page")
+    var page: Int = 0
 
-    @SerializedName("status")
-    var status: Int = 200
+    @SerializedName("results")
+    var results: ArrayList<Results>? = arrayListOf()
 
-    @SerializedName("data")
-    var data: T? = null
+    @SerializedName("total_pages")
+    var totalPages: Long? = null
+
+    @SerializedName("total_results")
+    var totalResults: Long? = null
 }
