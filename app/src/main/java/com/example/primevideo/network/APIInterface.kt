@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_PARAMETER")
+
 package com.example.androidbasesetup.networking.network
 
 import com.example.primevideo.Model.BaseModel
@@ -12,7 +14,7 @@ interface APIInterface {
         set(value) = TODO()
 
 
-    @GET("/all/day")
+    @GET("all/day")
     fun getList(@Query("api_key") key: String = apiKey): Observable<BaseModel<List<Results>>>
 
 //    @GET("genre/tv/list")

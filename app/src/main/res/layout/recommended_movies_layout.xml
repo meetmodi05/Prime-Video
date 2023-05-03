@@ -7,9 +7,9 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/ivShapeableImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
+        android:layout_width="225dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
         android:src="@drawable/jalsa"
         app:shapeAppearanceOverlay="@style/CornerSize10Percent" />
 

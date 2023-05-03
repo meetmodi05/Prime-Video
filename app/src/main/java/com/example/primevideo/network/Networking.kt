@@ -14,7 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 open class Networking(private val context: Context? = null) {
-    private var baseURL: String = "https://api.themoviedb.org/3/trending"
+    private var baseURL: String = "https://api.themoviedb.org/3/trending/"
+    private var baseImageURL: String = "https://image.tmdb.org/t/p/w500/"
 
     companion object {
         /**
@@ -30,6 +31,22 @@ open class Networking(private val context: Context? = null) {
             return JSONObject(params).toString()
                 .toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         }
+    }
+
+    fun get() {
+        val httpClient = OkHttpClient.Builder()
+        httpClient.readTimeout(60, TimeUnit.SECONDS)
+        httpClient.connectTimeout(60, TimeUnit.SECONDS)
+
+        //Log
+        val logging = HttpLoggingInterceptor()
+        logging.level = HttpLoggingInterceptor.Level.BODY
+        httpClient.addInterceptor(logging)
+
+        //GSON converter
+        val gson = GsonBuilder()
+            .registerTypeAdapterFactory(ItemTypeAdapterFactory())
+            .create()
     }
 
     fun getServices(): APIInterface {

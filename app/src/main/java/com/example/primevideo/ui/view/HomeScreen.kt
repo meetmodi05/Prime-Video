@@ -19,7 +19,6 @@ class HomeScreen : AppCompatActivity() {
     lateinit var binding: ActivityHomeScreenBinding
     private val viewModel by lazy { RecommendedMovieViewModel(this@HomeScreen) }
     private lateinit var imageModelArrayList: ArrayList<MoviesModel>
-    private lateinit var imageArrayList: ArrayList<MoviesModel>
     private var recommendedMoviesAdapter: RecommendedMoviesAdapter? = null
     private val recommendedList: ArrayList<Results> = arrayListOf()
 
@@ -59,9 +58,6 @@ class HomeScreen : AppCompatActivity() {
 
 
         binding.viewPager.adapter = ImageAdapter(imageModelArrayList)
-        binding.viewPager.beginFakeDrag()
-        binding.viewPager.fakeDragBy(-5f)
-        binding.viewPager.endFakeDrag()
         binding.wormDotsIndicator.attachTo(binding.viewPager)
 
         setAdapter()
@@ -87,10 +83,6 @@ class HomeScreen : AppCompatActivity() {
     }
 
     fun setAdapter() {
-//        imageArrayList = ArrayList()
-//        imageArrayList.add(MoviesModel(R.drawable.jalsa))
-//        imageArrayList.add(MoviesModel(R.drawable.jalsa))
-//        imageArrayList.add(MoviesModel(R.drawable.jalsa))
 
         binding.rvRecommendedMovies.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)

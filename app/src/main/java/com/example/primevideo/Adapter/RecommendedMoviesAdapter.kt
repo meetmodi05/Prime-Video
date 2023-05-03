@@ -41,6 +41,12 @@ class RecommendedMoviesAdapter(private var imgList: ArrayList<Results>) :
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         holder.binding(imgList[position])
+        Glide.with(holder.mContext)
+            .load("https://image.tmdb.org/t/p/w342${imgList[position].posterPath}")
+            .placeholder(
+                ContextCompat.getDrawable(holder.mContext, R.drawable.family_man)
+            ).override(512)
+            .into(holder.binding.ivShapeableImageView)
         holder.itemView.setOnClickListener {
             holder.itemView.context.startActivity(
                 Intent(
@@ -48,8 +54,6 @@ class RecommendedMoviesAdapter(private var imgList: ArrayList<Results>) :
                 )
             )
         }
-        Glide.with(holder.mContext).load(imgList[position].posterPath).override(512, 312)
-            .into(holder.binding.ivShapeableImageView)
     }
 
     override fun getItemCount(): Int {
