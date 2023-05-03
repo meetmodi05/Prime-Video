@@ -17,8 +17,8 @@ interface APIInterface {
     @GET("all/day")
     fun getList(@Query("api_key") key: String = apiKey): Observable<BaseModel<List<Results>>>
 
-//    @GET("genre/tv/list")
-//    fun getTvShows(@Query("api_key") key: String = apiKey): Observable<BaseModel<List<Results>>>
+    @GET("movie/top_rated")
+    fun getTvShows(@Query("api_key") key: String = apiKey): Observable<BaseModel<List<Results>>>
 //
 //    @GET("genre/movies/list")
 //    fun getMovies(@Query("api_key") key: String = apiKey): Observable<BaseModel<List<Results>>>

@@ -42,7 +42,7 @@ class RecommendedMoviesAdapter(private var imgList: ArrayList<Results>) :
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         holder.binding(imgList[position])
         Glide.with(holder.mContext)
-            .load("https://image.tmdb.org/t/p/w342${imgList[position].posterPath}")
+            .load("https://image.tmdb.org/t/p/w780${imgList[position].posterPath}")
             .placeholder(
                 ContextCompat.getDrawable(holder.mContext, R.drawable.family_man)
             ).override(512)
