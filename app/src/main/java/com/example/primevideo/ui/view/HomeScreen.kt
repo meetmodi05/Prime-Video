@@ -8,19 +8,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.primevideo.Adapter.ImageAdapter
 import com.example.primevideo.Adapter.RecommendedMoviesAdapter
+import com.example.primevideo.Adapter.TopRatedMovieAdapter
 import com.example.primevideo.Model.MoviesModel
 import com.example.primevideo.Model.Results
 import com.example.primevideo.R
 import com.example.primevideo.databinding.ActivityHomeScreenBinding
-import com.example.primevideo.ui.viewModel.RecommendedMovieViewModel
+import com.example.primevideo.ui.viewModel.HomeViewModel
 
 
 class HomeScreen : AppCompatActivity() {
     lateinit var binding: ActivityHomeScreenBinding
-    private val viewModel by lazy { RecommendedMovieViewModel(this@HomeScreen) }
+    private val viewModel by lazy { HomeViewModel(this@HomeScreen) }
     private lateinit var imageModelArrayList: ArrayList<MoviesModel>
     private var recommendedMoviesAdapter: RecommendedMoviesAdapter? = null
+    private var topRatedMoviesAdapter: TopRatedMovieAdapter? = null
     private val recommendedList: ArrayList<Results> = arrayListOf()
+    private val topRatedMovieList: ArrayList<Results> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityHomeScreenBinding.inflate(layoutInflater)
@@ -67,11 +70,8 @@ class HomeScreen : AppCompatActivity() {
     }
 
     private fun init() {
-//        binding.rvRecommendedMovies.layoutManager =
-//            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-//        recommendedMoviesAdapter = RecommendedMoviesAdapter(recommendedList)
-//        binding.rvRecommendedMovies.adapter = recommendedMoviesAdapter
         viewModel.getList()
+        viewModel.getTopRatedList()
     }
 
     private fun setObservers() {
@@ -80,14 +80,24 @@ class HomeScreen : AppCompatActivity() {
             recommendedList.addAll(it!!)
             recommendedMoviesAdapter?.setList(recommendedList)
         }
+        viewModel.topRatedLive.observe(this){
+            topRatedMovieList.clear()
+            topRatedMovieList.addAll(it!!)
+            topRatedMoviesAdapter?.setList(topRatedMovieList)
+        }
     }
 
-    fun setAdapter() {
+    private fun setAdapter() {
 
         binding.rvRecommendedMovies.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         recommendedMoviesAdapter = RecommendedMoviesAdapter(recommendedList)
         binding.rvRecommendedMovies.adapter = recommendedMoviesAdapter
+
+        binding.rvTopRatedMovies.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        topRatedMoviesAdapter = TopRatedMovieAdapter(topRatedMovieList)
+        binding.rvTopRatedMovies.adapter = topRatedMoviesAdapter
 
     }
 }

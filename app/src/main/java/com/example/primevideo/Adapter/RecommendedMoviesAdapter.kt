@@ -25,9 +25,7 @@ class RecommendedMoviesAdapter(private var imgList: ArrayList<Results>) :
     }
 
     class MyHolder(var mContext: Context, var binding: RecommendedMoviesLayoutBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        fun binding(model: Results) {}
-    }
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
@@ -40,13 +38,11 @@ class RecommendedMoviesAdapter(private var imgList: ArrayList<Results>) :
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
-        holder.binding(imgList[position])
+
         Glide.with(holder.mContext)
-            .load("https://image.tmdb.org/t/p/w780${imgList[position].posterPath}")
-            .placeholder(
+            .load("https://image.tmdb.org/t/p/w780${imgList[position].posterPath}").placeholder(
                 ContextCompat.getDrawable(holder.mContext, R.drawable.family_man)
-            ).override(512)
-            .into(holder.binding.ivShapeableImageView)
+            ).override(512).into(holder.binding.ivShapeableImageView)
         holder.itemView.setOnClickListener {
             holder.itemView.context.startActivity(
                 Intent(

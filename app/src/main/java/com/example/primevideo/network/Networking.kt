@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 open class Networking(private val context: Context? = null) {
-    private var baseURL: String = "https://api.themoviedb.org/3/trending/"
+    private var baseURL: String = "https://api.themoviedb.org/3/"
 
     companion object {
         /**

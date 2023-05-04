@@ -3,6 +3,7 @@
 package com.example.androidbasesetup.networking.network
 
 import com.example.primevideo.Model.BaseModel
+import com.example.primevideo.Model.LatestTvModel
 import com.example.primevideo.Model.Results
 import io.reactivex.Observable
 import retrofit2.http.GET
@@ -14,11 +15,15 @@ interface APIInterface {
         set(value) = TODO()
 
 
-    @GET("all/day")
+    @GET("trending/all/day")
     fun getList(@Query("api_key") key: String = apiKey): Observable<BaseModel<List<Results>>>
 
     @GET("movie/top_rated")
-    fun getTvShows(@Query("api_key") key: String = apiKey): Observable<BaseModel<List<Results>>>
+    fun getTopRated(@Query("api_key") key: String = apiKey): Observable<BaseModel<List<Results>>>
+
+    @GET("tv/latest")
+    fun getLatest(@Query("api_key") key: String = apiKey): Observable<LatestTvModel>
+
 //
 //    @GET("genre/movies/list")
 //    fun getMovies(@Query("api_key") key: String = apiKey): Observable<BaseModel<List<Results>>>

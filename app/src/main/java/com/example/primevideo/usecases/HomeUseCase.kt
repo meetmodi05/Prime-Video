@@ -14,11 +14,11 @@ class HomeUseCase(
     mContext: Context,
     private var errorLiveData: MutableLiveData<String>,
     private var demoLiveData: MutableLiveData<List<Results>?>,
+    private var topRatedLiveData: MutableLiveData<List<Results>?>,
 ) {
     fun getList() {
         if (demoLiveData == null) return
-        Networking.with().getServices().getList()
-            .subscribeOn(Schedulers.io())
+        Networking.with().getServices().getList().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : CallbackObserver<BaseModel<List<Results>>>() {
                 override fun onSuccess(response: BaseModel<List<Results>>) {
@@ -31,6 +31,22 @@ class HomeUseCase(
                     errorLiveData.value = message
                     Log.e("onFailed", "onFailed: $message+++$code")
                 }
+            })
+    }
+
+    fun getTopRated() {
+        if (topRatedLiveData == null) return
+        Networking.with().getServices().getTopRated().subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : CallbackObserver<BaseModel<List<Results>>>() {
+                override fun onSuccess(response: BaseModel<List<Results>>) {
+                    topRatedLiveData.postValue(response.results)
+                }
+
+                override fun onFailed(code: Int, message: String) {
+                    errorLiveData.postValue(message)
+                }
+
             })
     }
 }

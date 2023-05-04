@@ -6,12 +6,14 @@ import com.example.primevideo.Model.Results
 import com.example.primevideo.ui.view.BaseViewModel
 import com.example.primevideo.usecases.HomeUseCase
 
-class RecommendedMovieViewModel(mContext: Context) : BaseViewModel(mContext) {
+class HomeViewModel(mContext: Context) : BaseViewModel(mContext) {
 
     var dataList: ArrayList<Results> = arrayListOf()
     var dataLive: MutableLiveData<List<Results>?> = MutableLiveData()
+    var topRatedLive: MutableLiveData<List<Results>?> = MutableLiveData()
 
-    private val useCase = HomeUseCase(mContext, errorLiveData, dataLive)
+    private val useCase = HomeUseCase(mContext, errorLiveData, dataLive, topRatedLive)
 
     fun getList() = useCase.getList()
+    fun getTopRatedList() = useCase.getTopRated()
 }
