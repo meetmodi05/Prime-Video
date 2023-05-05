@@ -1,10 +1,10 @@
-package com.example.primevideo.Adapter
+package com.example.primevideo.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
-import com.example.primevideo.Model.MoviesModel
+import com.example.primevideo.model.movie.MoviesModel
 import com.example.primevideo.databinding.ItemViewLayoutBinding
 
 class ImageAdapter(

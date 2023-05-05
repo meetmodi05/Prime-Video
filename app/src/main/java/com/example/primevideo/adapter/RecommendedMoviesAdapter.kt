@@ -1,4 +1,4 @@
-package com.example.primevideo.Adapter
+package com.example.primevideo.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,10 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.bumptech.glide.Glide
-import com.example.primevideo.Model.Results
+import com.example.primevideo.model.Results
 import com.example.primevideo.R
 import com.example.primevideo.databinding.RecommendedMoviesLayoutBinding
-import com.example.primevideo.ui.view.RecommendedMoviesDetail
+import com.example.primevideo.ui.view.home.RecommendedMoviesDetail
 
 class RecommendedMoviesAdapter(private var imgList: ArrayList<Results>) :
     Adapter<RecommendedMoviesAdapter.MyHolder>() {

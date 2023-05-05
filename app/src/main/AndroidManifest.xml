@@ -14,10 +14,10 @@
         android:theme="@style/Theme.PrimeVideo"
         tools:targetApi="31">
         <activity
-            android:name=".ui.view.RecommendedMoviesDetail"
+            android:name=".ui.view.home.RecommendedMoviesDetail"
             android:exported="false" />
         <activity
-            android:name=".ui.view.HomeScreen"
+            android:name=".ui.view.home.HomeScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

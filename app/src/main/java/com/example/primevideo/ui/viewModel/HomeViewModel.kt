@@ -2,9 +2,9 @@ package com.example.primevideo.ui.viewModel
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.example.primevideo.Model.Results
-import com.example.primevideo.ui.view.BaseViewModel
-import com.example.primevideo.usecases.HomeUseCase
+import com.example.nourishinggeniusstudent.ui.view.base.BaseViewModel
+import com.example.primevideo.model.Results
+import com.example.primevideo.network.usecases.HomeUseCase
 
 class HomeViewModel(mContext: Context) : BaseViewModel(mContext) {
 

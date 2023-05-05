@@ -1,11 +1,11 @@
-package com.example.primevideo.Adapter
+package com.example.primevideo.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.primevideo.ui.view.MoreDetailFragment
-import com.example.primevideo.ui.view.RelatedFragment
+import com.example.primevideo.ui.view.fragment.MoreDetailFragment
+import com.example.primevideo.ui.view.fragment.RelatedFragment
 
 class VPAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {

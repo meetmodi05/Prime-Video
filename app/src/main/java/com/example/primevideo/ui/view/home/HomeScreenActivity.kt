@@ -1,24 +1,24 @@
-package com.example.primevideo.ui.view
+package com.example.primevideo.ui.view.home
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.primevideo.Adapter.ImageAdapter
-import com.example.primevideo.Adapter.RecommendedMoviesAdapter
-import com.example.primevideo.Adapter.TopRatedMovieAdapter
-import com.example.primevideo.Model.MoviesModel
-import com.example.primevideo.Model.Results
+import com.example.nourishinggeniusstudent.ui.view.base.BaseActivity
 import com.example.primevideo.R
+import com.example.primevideo.adapter.ImageAdapter
+import com.example.primevideo.adapter.RecommendedMoviesAdapter
+import com.example.primevideo.adapter.TopRatedMovieAdapter
 import com.example.primevideo.databinding.ActivityHomeScreenBinding
+import com.example.primevideo.model.Results
+import com.example.primevideo.model.movie.MoviesModel
 import com.example.primevideo.ui.viewModel.HomeViewModel
 
 
-class HomeScreen : AppCompatActivity() {
+class HomeScreenActivity : BaseActivity() {
     lateinit var binding: ActivityHomeScreenBinding
-    private val viewModel by lazy { HomeViewModel(this@HomeScreen) }
+    private val viewModel by lazy { HomeViewModel(this@HomeScreenActivity) }
     private lateinit var imageModelArrayList: ArrayList<MoviesModel>
     private var recommendedMoviesAdapter: RecommendedMoviesAdapter? = null
     private var topRatedMoviesAdapter: TopRatedMovieAdapter? = null
@@ -30,9 +30,33 @@ class HomeScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+
+        imageLoad()
+        setOnClickListener()
+        loadViewPager()
+        setAdapter()
+        setObservers()
+        init()
+
+    }
+
+    private fun loadViewPager() {
+        imageModelArrayList = ArrayList()
+        imageModelArrayList =
+            (imageModelArrayList + MoviesModel(R.drawable.family_man)) as ArrayList<MoviesModel>
+        imageModelArrayList =
+            (imageModelArrayList + MoviesModel(R.drawable.farzi)) as ArrayList<MoviesModel>
+        imageModelArrayList.add(MoviesModel(R.drawable.jalsa))
+        imageModelArrayList.add(MoviesModel(R.drawable.jaibhim2))
+        imageModelArrayList.add(MoviesModel(R.drawable.antman))
+    }
+
+    private fun imageLoad() {
         Glide.with(this).load(AppCompatResources.getDrawable(this, R.drawable.primevideo))
             .override(220, 220).into(binding.ivPrimeLogo)
+    }
 
+    private fun setOnClickListener() {
         binding.tvAll.setOnClickListener {
             binding.tvAll.isSelected = true
             binding.tvMovies.isSelected = false
@@ -48,28 +72,10 @@ class HomeScreen : AppCompatActivity() {
             binding.tvMovies.isSelected = false
             binding.tvTvShows.isSelected = true
         }
-
-
-        imageModelArrayList = ArrayList()
-        imageModelArrayList =
-            (imageModelArrayList + MoviesModel(R.drawable.family_man)) as ArrayList<MoviesModel>
-        imageModelArrayList =
-            (imageModelArrayList + MoviesModel(R.drawable.farzi)) as ArrayList<MoviesModel>
-        imageModelArrayList.add(MoviesModel(R.drawable.jalsa))
-        imageModelArrayList.add(MoviesModel(R.drawable.jaibhim2))
-        imageModelArrayList.add(MoviesModel(R.drawable.antman))
-
-
-        binding.viewPager.adapter = ImageAdapter(imageModelArrayList)
-        binding.wormDotsIndicator.attachTo(binding.viewPager)
-
-        setAdapter()
-        setObservers()
-        init()
-
     }
 
     private fun init() {
+        viewModel.isLoading.value = true
         viewModel.getList()
         viewModel.getTopRatedList()
     }
@@ -79,8 +85,9 @@ class HomeScreen : AppCompatActivity() {
             recommendedList.clear()
             recommendedList.addAll(it!!)
             recommendedMoviesAdapter?.setList(recommendedList)
+
         }
-        viewModel.topRatedLive.observe(this){
+        viewModel.topRatedLive.observe(this) {
             topRatedMovieList.clear()
             topRatedMovieList.addAll(it!!)
             topRatedMoviesAdapter?.setList(topRatedMovieList)
@@ -88,6 +95,9 @@ class HomeScreen : AppCompatActivity() {
     }
 
     private fun setAdapter() {
+
+        binding.viewPager.adapter = ImageAdapter(imageModelArrayList)
+        binding.wormDotsIndicator.attachTo(binding.viewPager)
 
         binding.rvRecommendedMovies.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
@@ -98,6 +108,5 @@ class HomeScreen : AppCompatActivity() {
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         topRatedMoviesAdapter = TopRatedMovieAdapter(topRatedMovieList)
         binding.rvTopRatedMovies.adapter = topRatedMoviesAdapter
-
     }
 }

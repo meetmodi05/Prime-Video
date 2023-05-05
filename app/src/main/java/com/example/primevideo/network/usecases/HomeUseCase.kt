@@ -1,12 +1,12 @@
-package com.example.primevideo.usecases
+package com.example.primevideo.network.usecases
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.androidbasesetup.networking.network.CallbackObserver
 import com.example.androidbasesetup.networking.network.Networking
-import com.example.primevideo.Model.BaseModel
-import com.example.primevideo.Model.Results
+import com.example.primevideo.model.BaseModel
+import com.example.primevideo.model.Results
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

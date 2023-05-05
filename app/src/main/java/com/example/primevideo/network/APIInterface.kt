@@ -2,9 +2,9 @@
 
 package com.example.androidbasesetup.networking.network
 
-import com.example.primevideo.Model.BaseModel
-import com.example.primevideo.Model.LatestTvModel
-import com.example.primevideo.Model.Results
+import com.example.primevideo.model.BaseModel
+import com.example.primevideo.model.LatestTvModel
+import com.example.primevideo.model.Results
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

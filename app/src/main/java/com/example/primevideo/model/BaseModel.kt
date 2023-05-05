@@ -1,4 +1,4 @@
-package com.example.primevideo.Model
+package com.example.primevideo.model
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

@@ -1,10 +1,10 @@
-package com.example.primevideo.Adapter
+package com.example.primevideo.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
-import com.example.primevideo.Model.Results
+import com.example.primevideo.model.Results
 import com.example.primevideo.databinding.RelatedLayoutBinding
 
 class RecommendedMoviesDetailAdapter() : Adapter<RecommendedMoviesDetailAdapter.ViewHolder>() {

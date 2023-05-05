@@ -55,6 +55,8 @@
     <string name="customer_reviews">Customer reviews</string>
     <string name="customer_reviews_description">We don\'t have any customer reviews</string>
     <string name="categories">Categories</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
